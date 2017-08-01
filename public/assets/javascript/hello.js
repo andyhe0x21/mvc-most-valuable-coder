@@ -1,0 +1,1 @@
+console.log("This JavaScript file is loaded successfully.");
