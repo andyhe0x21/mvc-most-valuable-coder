@@ -6,7 +6,7 @@
 
   // configure sequelize instance
   // be sure to run mysql command to create database instance
-  var password = "andyhemysql123";
+  var password = "root";
   var sequelize = new Sequelize("database_name", "root", password, {
     host: "localhost",
     dialect: "mysql",
