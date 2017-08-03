@@ -1,0 +1,32 @@
+Features:
+
+There shall be two main containers, 1.) problem & code panel; 2.) List panel.
+
+l.    Section1 - problem & code panel;
+		1.a.) problem  sub-container 
+		- Problem Title shall be displayed right under heading
+		- Description shall be displayed under problem title.
+    - not editable
+    
+		1.b.) code sub-container 
+    - code container shall be displayed with good enough space to write codes on.
+    - shall accept alphanumeric and special characters.
+    - can be edited buy user
+    
+    1.c.) submit button
+    - when button is click, app complies the code
+    
+    1.d.) username sub-container
+    - user enters username
+    - can accept alphanumeric and underscore
+    - username is saved in database when submit button is clicked
+    - once submit button is clicked, username is no longer editable
+    
+    1.e.) comments  sub-container
+    - app displays comments/errors after codes were run.
+    - not editable
+
+2.  Section 2 - List
+    - list title: Score Board
+    - username
+    
