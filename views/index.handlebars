@@ -1,1 +1,205 @@
-<h1>{{data}}</h1>
+
+<body>
+    <header id="masterhead">
+        <div class="container">
+            <h1><strong>Welcome to MVC </strong></h1>
+            <h3>{ Most Valuable Coder }</h3>
+        </div>
+    </header>
+    <hr>
+
+    <div id="main-container" class="container">
+        <section class="main-section">
+
+            <div id="problem-title" class="jumbotron">
+                <p id="problem"> Write a function that returns the sum of two numbers.</p>
+            </div>
+            
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="usr">Code:</label>
+                    <textarea class="form-control" rows="10" id="usercode">
+                        Enter your codes here.
+                    </textarea>
+                </div>
+            </div>
+            
+
+            <div class="row">
+                <div class="col-md-1">
+
+                    <button type="button" class="btn btn-success" id="start">Start</button>
+                    {{!-- <div class="col-md-1 col-md-offset-1">
+                        <p id="clock">clock goes here</p>
+                    </div> --}}
+                    
+                    <div class="col-md-1 col-md-offset-1">
+                        <button type="button" class="btn btn-primary" id="runcode">Submit</button>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!-- <div class="alert alert-success" id="pass">Pass!</div> -->
+                        <!-- <div class="alert alert-danger" id="fail">Fail!</div> -->
+                        <!-- <div class="alert alert-danger" id="error">Syntax Error</div> -->
+                    </div>
+                </div>
+
+                <div id="comments-field" class="jumbotron">
+                    <p id="comments">This is where the comments go</p>
+                </div>
+
+            </section>
+
+            <section id="usercode" class="username">
+                <!-- <div id="usercode"> -->
+                <textarea class="form-control" rows="2" id="usercode">
+                    Enter username
+                </textarea>
+                <!-- </div> -->
+                
+            </section> 
+
+
+            <section class="list-section">
+                <div id="scoreboard">
+                    <h4><strong>Score Board</strong></h4>
+                    <p>Usernames</p>
+                </div>
+                
+            </section>
+
+            <!-- <div class="push"></div> -->
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                Copyright &copy; 2017 MVC
+            </div>
+        </footer>
+
+
+
+
+
+
+
+  <body>
+
+    <div id="wrapper">
+
+      <div id="display">00:00</div>
+
+      <!-- Div containing our stopwatch controls -->
+      <div id="buttons">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+        <button id="lap">Lap</button>
+      </div>
+
+      <div id="laps"></div>
+
+    </div>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+
+    <!-- Script -->
+    <script type="text/javascript" src="stopwatchSolution.js"></script>
+
+  </body>
+
+
+
+<script>
+
+// This code will run as soon as the page loads
+window.onload = function() {
+  $("#lap").on("click", stopwatch.recordLap);
+  $("#stop").on("click", stopwatch.stop);
+  $("#reset").on("click", stopwatch.reset);
+  $("#start").on("click", stopwatch.start);
+};
+
+//  Variable that will hold our setInterval that runs the stopwatch
+var intervalId;
+
+// Our stopwatch object
+var stopwatch = {
+
+  time: 0,
+  lap: 1,
+
+  reset: function() {
+
+    stopwatch.time = 0;
+    stopwatch.lap = 1;
+
+    // DONE: Change the "display" div to "00:00."
+    $("#display").html("00:00");
+
+    // DONE: Empty the "laps" div.
+    $("#laps").html("");
+  },
+  start: function() {
+
+    // DONE: Use setInterval to start the count here.
+    intervalId = setInterval(stopwatch.count, 1000);
+  },
+  stop: function() {
+
+    // DONE: Use clearInterval to stop the count here.
+    clearInterval(intervalId);
+  },
+  recordLap: function() {
+
+    // DONE: Get the current time, pass that into the stopwatch.timeConverter function,
+    //       and save the result in a variable.
+    var converted = stopwatch.timeConverter(stopwatch.time);
+
+    // DONE: Add the current lap and time to the "laps" div.
+    $("#laps").append("<p>Lap " + stopwatch.lap + " : " + converted + "</p>");
+
+    // DONE: Increment lap by 1. Remember, we can't use "this" here.
+    stopwatch.lap++;
+  },
+  count: function() {
+
+    // DONE: increment time by 1, remember we cant use "this" here.
+    stopwatch.time++;
+
+    // DONE: Get the current time, pass that into the stopwatch.timeConverter function,
+    //       and save the result in a variable.
+    var converted = stopwatch.timeConverter(stopwatch.time);
+    console.log(converted);
+
+    // DONE: Use the variable we just created to show the converted time in the "display" div.
+    $("#display").html(converted);
+  },
+  timeConverter: function(t) {
+
+    var minutes = Math.floor(t / 60);
+    var seconds = t - (minutes * 60);
+
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
+
+    if (minutes === 0) {
+      minutes = "00";
+    }
+    else if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+
+    return minutes + ":" + seconds;
+  }
+};
+
+</script>
+
