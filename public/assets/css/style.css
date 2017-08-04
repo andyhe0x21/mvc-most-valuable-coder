@@ -160,19 +160,7 @@ footer {
 
 
 /*+++++++++++++++++++++++++++++++++++++++++*/
-{{!-- <<<<<<< HEAD
-<h1>{{data}}</h1>
 
-<!DOCTYPE html>
-
-<html lang="en-us">
-
-  <head>
-
-  <style>
-body { /* Visual */
-  background: black;
-}
 
 #display {
   font-family: monospace;
@@ -221,7 +209,7 @@ button {
   /* Visual */
   background: white;
 }
-  </style>
+
 
 
 
