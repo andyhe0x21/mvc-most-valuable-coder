@@ -1,96 +1,73 @@
-<body>
-  <header>
-    <div  id="masterhead">
-      <h1>{ Most Valuable Coder }</h1>
-    </div>
-  </header>
-  <br>
+<div id="setOpacity">
   <div id="main-container" class="container">
     <div id="instruction" >
       <p>
-        Welcome to MVC, an online coding judging app (for competitive programming online.)  Practice your coding skill.  Below are random questions that you can solve by coding the right javascript codes.  Complete and compete. Each correct answer earns points.  The hightest score is [ ], can you beat it?  Remember time is running, start coding.</p>
-
+        Welcome to MVC, an online coding judging app (for competitive programming online.)  Practice your coding skill.  Below are random questions that you can solve by coding the right javascript codes.  Complete and compete. Each correct answer earns points.  The hightest score is [ ], can you beat it?  Remember time is running, start coding.
+      </p>
+    </div>
+    <section class="main-section">
+      <div id="problem-title" class="jumbotron">
+        <p id="problem">
+          Write a function that returns the sum of two numbers.
+        </p>
       </div>
-      <section class="main-section">
-        <div id="problem-title" class="jumbotron">
-          <p id="problem"> Write a function that returns the sum of two numbers.</p>
+      <div class="row">
+        <div class="col-md-12">
+          <textarea class="form-control" rows="10" id="usercode">
+            Enter your codes here.
+          </textarea>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <textarea class="form-control" rows="10" id="usercode">
-              Enter your codes here.
-            </textarea>
-          </div>
+      </div>
+      <div id="buttons">
+        <div class="col-md-1">
+          <button type="button" class="btn btn-success" id="starttimer">
+            Start
+          </button>
         </div>
-        <div id="buttons">
-          <div class="col-md-1">
-            <button type="button" class="btn btn-success" id="starttimer">Start</button>
-          </div>
-          <div class="col-md-1 col-md-offset-1">
-            <button type="button" class="btn btn-default" id="clock">00:00</button>
-          </div>
-          <div class="col-md-1 col-md-offset-1">
-            <button type="button" class="btn btn-primary" id="runcode">Submit</button>
-          </div>
+        <div class="col-md-1 col-md-offset-1">
+          <button type="button" class="btn btn-default" id="clock">00:00</button>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-
-            <!-- <div class="alert alert-success" id="pass">Pass!</div> -->
-            <!-- <div class="alert alert-danger" id="fail">Fail!</div> -->
-            <!-- <div class="alert alert-danger" id="error">Syntax Error</div> -->
-          </div>
+        <div class="col-md-1 col-md-offset-1">
+          <button type="button" class="btn btn-primary" id="runcode">Submit</button>
         </div>
-        <div id="comments-field" class="jumbotron">
-          <p id="comments">This is where the comments go</p>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
         </div>
+      </div>
+      <div id="comments-field" class="jumbotron">
+        <p id="comments">This is where the comments go</p>
+      </div>
+    </section>
+    <div id="leftpane">
+      <section class="user">
+        <input id="username-field" type="text" maxlength="16" value="Username(alphanum only)"></input> 
+      </section> 
+      <section class="list-section">
+        <div id="scoreboard">
+          <h4><strong>Score Board</strong></h4>
+          <p id="usernames">1234567890123456</p>
+        </div>    
       </section>
-      <div id="leftpane">
-        <section class="user">
-          <input id="username-field" type="text" maxlength="16" value="Username (alphanum only)"></input> 
-        </section> 
-        <section class="list-section">
-          <div id="scoreboard">
-            <h4><strong>Score Board</strong></h4>
-            <p id="usernames">1234567890123456</p>
-          </div>    
-        </section>
-        <div class="push"></div>
+      <div class="push">
       </div>
     </div>
-    <footer class="footer">
-      <div class="container">
-        Copyright &copy; 2017 MVC
-      </div>
-    </footer>
-
-
-  </body>
-
-
-
-<!-- ==================== RICK =================== -->
-
-  <body>
-
-    <div id="wrapper">
-
-      <div id="display">00:00</div>
-
-      <!-- Div containing our stopwatch controls -->
+  </div>
+  <footer class="footer">
+    <div class="container">
+      Copyright &copy; 2017 MVC
+    </div>
+  </footer>
+  <div id="wrapper"><!-- below added by rick, to be removed-->
+    <div id="display">00:00</div>
+     <!-- Div containing our stopwatch controls -->
       <div id="buttons">
         <button id="start">Start</button>
         <button id="stop">Stop</button>
         <button id="reset">Reset</button>
         <button id="lap">Lap</button>
       </div>
-
       <div id="laps"></div>
-
     </div>
-  </body>
-
-
-
-
-
+  </div>
+</div>
