@@ -1,73 +1,75 @@
-<<<<<<< HEAD
-<h1>{{data}}</h1>
+<body>
+  <header>
+    <div  id="masterhead">
+      <h1>{ Most Valuable Coder }</h1>
+    </div>
+  </header>
+  <br>
+  <div id="main-container" class="container">
+    <div id="instruction" >
+      <p>
+        Welcome to MVC, an online coding judging app (for competitive programming online.)  Practice your coding skill.  Below are random questions that you can solve by coding the right javascript codes.  Complete and compete. Each correct answer earns points.  The hightest score is [ ], can you beat it?  Remember time is running, start coding.</p>
 
-<!DOCTYPE html>
+      </div>
+      <section class="main-section">
+        <div id="problem-title" class="jumbotron">
+          <p id="problem"> Write a function that returns the sum of two numbers.</p>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <textarea class="form-control" rows="10" id="usercode">
+              Enter your codes here.
+            </textarea>
+          </div>
+        </div>
+        <div id="buttons">
+          <div class="col-md-1">
+            <button type="button" class="btn btn-success" id="starttimer">Start</button>
+          </div>
+          <div class="col-md-1 col-md-offset-1">
+            <button type="button" class="btn btn-default" id="clock">00:00</button>
+          </div>
+          <div class="col-md-1 col-md-offset-1">
+            <button type="button" class="btn btn-primary" id="runcode">Submit</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
 
-<html lang="en-us">
+            <!-- <div class="alert alert-success" id="pass">Pass!</div> -->
+            <!-- <div class="alert alert-danger" id="fail">Fail!</div> -->
+            <!-- <div class="alert alert-danger" id="error">Syntax Error</div> -->
+          </div>
+        </div>
+        <div id="comments-field" class="jumbotron">
+          <p id="comments">This is where the comments go</p>
+        </div>
+      </section>
+      <div id="leftpane">
+        <section class="user">
+          <input id="username-field" type="text" maxlength="16" value="Username (alphanum only)"></input> 
+        </section> 
+        <section class="list-section">
+          <div id="scoreboard">
+            <h4><strong>Score Board</strong></h4>
+            <p id="usernames">1234567890123456</p>
+          </div>    
+        </section>
+        <div class="push"></div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        Copyright &copy; 2017 MVC
+      </div>
+    </footer>
 
-  <head>
 
-  <style>
-body { /* Visual */
-  background: black;
-}
+  </body>
 
-#display {
-  font-family: monospace;
-  font-size: 120px;
-  color: green;
 
-  /* Typography */
-  text-align: center;
 
-  /* Visual */
-  background: black;
-}
-
-#wrapper {
-  /* Box-model */
-  width: 500px;
-
-  /* Positioning */
-  margin: 50px auto 0;
-}
-
-#buttons { /* Typography */
-  text-align: center;
-}
-
-button {
-  width: 100px;
-
-  /* Box-model */
-  height: 50px;
-}
-
-#laps {
-  width: 100%;
-  height: 200px;
-
-  /* Positioning */
-  margin-top: 20px;
-
-  /* Box-model */
-  overflow: auto;
-
-  /* Typography */
-  text-align: center;
-
-  /* Visual */
-  background: white;
-}
-  </style>
-
-    <meta charset="UTF-8">
-    <title>Stopwatch</title>
-
-    <!-- Our CSS style sheet -->
-    <link rel="stylesheet" href="style.css">
-
-  </head>
+<!-- ==================== RICK =================== -->
 
   <body>
 
@@ -95,7 +97,7 @@ button {
 
   </body>
 
-</html>
+
 
 <script>
 
@@ -183,97 +185,4 @@ var stopwatch = {
 };
 
 </script>
-=======
-<body>
-    <header id="masterhead">
-        <div class="container">
-            <h1><strong>Welcome to MVC </strong></h1>
-            <h3>{ Most Valuable Coder }</h3>
-        </div>
-    </header>
-    <hr>
 
-
-
-
-    <div id="main-container" class="container">
-        <!-- {{{ body }}} -->
-        <section class="main-section">
-
-            <div id="problem-title" class="jumbotron">
-                <p id="problem"> Write a function that returns the sum of two numbers.</p>
-            </div>
-            
-
-            <div class="row">
-                <div class="col-md-12">
-                    <label for="usr">Code:</label>
-                    <textarea class="form-control" rows="10" id="usercode">
-                        Enter your codes here.
-                    </textarea>
-                </div>
-            </div>
-            
-
-            <div class="row">
-                <div class="col-md-1">
-                    <button type="button" class="btn btn-success" id="starttimer">Start</button>
-                    <div class="col-md-1 col-md-offset-1">
-                        <button type="button" class="btn btn-primary" id="runcode">Submit</button>
-                    </div>
-                    <div class="col-md-1 col-md-offset-1">
-                        <button type="button" class="btn btn-primary" id="runcode">Submit</button>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <!-- <div class="alert alert-success" id="pass">Pass!</div> -->
-                        <!-- <div class="alert alert-danger" id="fail">Fail!</div> -->
-                        <!-- <div class="alert alert-danger" id="error">Syntax Error</div> -->
-                    </div>
-                </div>
-
-                <div id="comments-field" class="jumbotron">
-                    <p id="comments">This is where the comments go</p>
-                </div>
-
-            </section>
-
-            <section id="usercode" class="username">
-                <!-- <div id="usercode"> -->
-                <textarea class="form-control" rows="2" id="usercode">
-                    Enter username
-                </textarea>
-                <!-- </div> -->
-                
-            </section> 
-
-
-            <section class="list-section">
-                <div id="scoreboard">
-                    <h4><strong>Score Board</strong></h4>
-                    <p>Usernames</p>
-                </div>
-                
-            </section>
-
-
-
-
-
-
-
-
-
-            <!-- <div class="push"></div> -->
-        </div>
-
-        <footer class="footer">
-            <div class="container">
-                Copyright &copy; 2017 MVC
-            </div>
-        </footer>
->>>>>>> c6fb524da1e29115ea613606e12174ff49062992
