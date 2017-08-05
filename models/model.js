@@ -1,3 +1,4 @@
+
 "use strict";
 
 (function() {
@@ -6,8 +7,7 @@
 
   // configure sequelize instance
   // be sure to run mysql command to create database instance
-  
-  var password = "root";
+  var password = "";
   var sequelize = new Sequelize("database_name", "root", password, {
     host: "localhost",
     dialect: "mysql",
@@ -19,12 +19,19 @@
   });
 
   // define table structure
-  var myTable = sequelize.define("table_name",
+  var User = sequelize.define("table_name",
   {
     name: {
       type: Sequelize.STRING
-    }
+    }, 
+     num_solved: {
+      type: Sequelize.INTEGER
+    },
+     avg_time: {
+      type: Sequelize.FLOAT
+    },
   },
+   
   {
     timestamps: false
   });
@@ -50,19 +57,10 @@
         callback(result);
       });
     },
-    deleteById: function(itemId, callback) {
-      myTable.destroy(
-      {
-        where: {
-          id: itemId
-        }
-      }).then(function(result) {
-        callback(result);
-      });
-    },
+   
     add: function(newName, callback) {
       myTable.create({
-        id: 1,
+      
         name: newName
       }).then(function(result) {
         callback(result);
@@ -71,12 +69,12 @@
     update: function(itemId, callback) {
       myTable.update(
       {
-        isDone: true
+        
       }
       , {
         where: 
         {
-          id: itemId
+          
         }
       }).then(function (result) {
         callback(result);
