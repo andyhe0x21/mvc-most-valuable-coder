@@ -7,7 +7,10 @@
 
   // configure sequelize instance
   // be sure to run mysql command to create database instance
-  var password = "";
+
+  // this needs to be changed when testing the app locally
+  var password = "andyhemysql123";
+  
   var sequelize = new Sequelize("database_name", "root", password, {
     host: "localhost",
     dialect: "mysql",
@@ -19,7 +22,7 @@
   });
 
   // define table structure
-  var User = sequelize.define("table_name",
+  var user_table = sequelize.define("user_table",
   {
     name: {
       type: Sequelize.STRING
@@ -37,18 +40,18 @@
   });
 
   // sync table
-  myTable.sync();
+  user_table.sync();
 
   // combined model and ORM
   var model = {
     all: function(callback) {
-      myTable.findAll({// empty constraint
+      user_table.findAll({// empty constraint
       }).then(function(result) {
         callback(result);
       });
     },
     search: function(name, callback) {
-      myTable.findAll({
+      user_table.findAll({
         where:
         {
           name: name
@@ -59,7 +62,7 @@
     },
    
     add: function(newName, callback) {
-      myTable.create({
+      user_table.create({
       
         name: newName
       }).then(function(result) {
@@ -67,7 +70,7 @@
       });
     },
     update: function(itemId, callback) {
-      myTable.update(
+      user_table.update(
       {
         
       }
