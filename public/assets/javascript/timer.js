@@ -1,9 +1,9 @@
 // This code will run as soon as the page loads
 window.onload = function() {
   $("#lap").on("click", stopwatch.recordLap);
-  $("#stop").on("click", stopwatch.stop);
+  $("#runcode").on("click", stopwatch.stop);
   $("#reset").on("click", stopwatch.reset);
-  $("#start").on("click", stopwatch.start);
+  $("#starttimer").on("click", stopwatch.start);
 };
 
 //  Variable that will hold our setInterval that runs the stopwatch
@@ -21,7 +21,7 @@ var stopwatch = {
     stopwatch.lap = 1;
 
     // DONE: Change the "display" div to "00:00."
-    $("#display").html("00:00");
+    $("#clock").html("00:00");
 
     // DONE: Empty the "laps" div.
     $("#laps").html("");
@@ -59,7 +59,7 @@ var stopwatch = {
     console.log(converted);
 
     // DONE: Use the variable we just created to show the converted time in the "display" div.
-    $("#display").html(converted);
+    $("#clock").html(converted);
   },
   timeConverter: function(t) {
 
