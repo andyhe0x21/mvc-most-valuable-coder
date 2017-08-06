@@ -9,7 +9,7 @@
   // be sure to run mysql command to create database instance
 
   // this needs to be changed when testing the app locally
-  var password = "root";
+  var password = "andyhemysql123";
   
   var sequelize = new Sequelize("database_name", "root", password, {
     host: "localhost",
