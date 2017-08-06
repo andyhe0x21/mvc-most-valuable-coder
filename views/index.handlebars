@@ -1,35 +1,32 @@
-<div class="row navbar-fixed-top" id="top-navbar">
-  <div class="row">
-    <div class="col-md-6">
-      <img src="/assets/images/dev-icon.png" width="60px">
-      MVC, Most Valuable Coder
-    </div>
-    <div class="col-md-6" id="top-buttons">
-      <img src="/assets/images/help-icon.png" width="40px">
-      <a href="#">How to Use</a>
-    </div>
-  </div>
-</div>
+<!-- Navbar on the top is defined in main.handlebars -->
 
 <div id="main-container" class="container">
-  <!--
-  <div class="row">
-    <div class="col-md-12" id="welcome">
-      Welcome to MVC, an online coding judging app (for competitive programming online.)  Practice your coding skill.  Below are random questions that you can solve by coding the right javascript codes.  Complete and compete. Each correct answer earns points.  The hightest score is [ ], can you beat it?  Remember time is running, start coding.
-    </div>
-  </div>-->
 
   <div class="row">
     <div class="col-md-8">
       <div class="row">
         <div class="col-md-12 row-title">
           <img src="/assets/images/arrow-icon.png" width="30px">
-          Problem
+          Challenge
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12 content-text">
-          Write a function that returns the sum of two numbers.
+        <div class="col-md-12 content-text" id="choose-problem">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+              Choose a Problem
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li id="problem-0"><a href="#">Add two tumbers</a></li>
+              <li id="problem-1"><a href="#">Find maximum number in an array</a></li>
+              <li id="problem-2"><a href="#">Reverse a string</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 content-text" id="problem-description">
         </div>
       </div>
       <div class="row">
@@ -40,10 +37,10 @@
       </div>
       <div class="row">
         <div class="col-md-12 content-text">
+          <!-- we need different function headers,
+          like "function add(a, b)" or "function sort(array)",
+          for different problems -->
           <textarea class="form-control" rows="10" id="usercode">
-function add(a, b) {
-  // write your code below
-}
           </textarea>
         </div>
       </div>
@@ -52,7 +49,7 @@ function add(a, b) {
         <div class="col-md-12">
           <input id="username-field" type="text" maxlength="16" value="Your name"></input>
           <button type="button" class="btn btn-success" id="starttimer">Start</button>
-          <button type="button" class="btn btn-primary" id="runcode">Submit</button>
+          <button type="button" class="btn btn-primary" id="runcode">Verify Code</button>
           <span id="clock-title">
             <strong>Timer: </strong>
           </span>
@@ -64,23 +61,12 @@ function add(a, b) {
 
       <div class="row">
         <div class="col-md-12">
-          <div id="pass-fail-error-bar">
+          <div class="alert alert-warning" id="default-console">
+            Click "Verify Code" when you finish.
           </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12 row-title">
-          <img src="/assets/images/arrow-icon.png" width="30px">
-          Console
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="well well-sm">
-            1 + 1 = 2, but your function returns 3
-          </div>
+          <div class="alert alert-success" id="pass"></div>
+				  <div class="alert alert-danger" id="fail"></div>
+				  <div class="alert alert-danger" id="error"></div>
         </div>
       </div>
     </div>
@@ -101,13 +87,6 @@ function add(a, b) {
           </ol>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="row" id="footer">
-    <div class="col-md-12">
-      Copyright 2017 MVC
-      <br
     </div>
   </div>
 

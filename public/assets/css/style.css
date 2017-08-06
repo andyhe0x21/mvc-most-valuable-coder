@@ -1,12 +1,13 @@
 body {
-  padding: 70px 100px 20px 100px;
+  padding: 80px 100px 20px 100px;
 }
 
 #top-navbar {
   background-color: #F0EFEB;
   color: grey;
+  text-align: center;
   height: 70px;
-  padding: 8px 0px 10px 120px;
+  padding: 8px 0px 10px 0px;
   font-family: 'Abel', sans-serif;
   font-size: 25px;
   font-weight: bold;
@@ -33,12 +34,12 @@ body {
 #rank-title {
   font-family: 'Anton', sans-serif;
   font-size: 30px;
-  margin: 20px 100px 20px 100px;
+  margin: 20px 100px 20px 50px;
 }
 
 #rank-list {
-  font-size: 25px;
-  margin: 2px 100px 20px 100px;
+  font-size: 20px;
+  margin: 2px 100px 20px 50px;
 }
 
 #clock-title {
