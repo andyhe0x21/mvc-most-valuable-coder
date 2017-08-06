@@ -1,4 +1,4 @@
-fucntion add(a, b) {
+function add(a, b) {
   // write you code here
   return  a + b;
 }
