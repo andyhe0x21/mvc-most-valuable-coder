@@ -3,28 +3,47 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MVC</title>
-	<link rel="stylesheet" href="/assets/css/reset.css" type="text/css">
 	<!-- jquery -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<!-- bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+	<!-- bootstrap js -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 	<!-- private css -->
+	<link rel="stylesheet" href="/assets/css/reset.css" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
 	<link rel="stylesheet" href="/assets/css/style.css" type="text/css">
-	<!-- private javascript -->
-	<script src="/assets/javascript/timer.js"></script>
 </head>
 
 <header>
-  <div id="masterhead">
-    <h1>{ Most Valuable Coder }</h1>
+	<div class="row navbar-fixed-top" id="top-navbar">
+  <div class="row">
+    <div class="col-md-12">
+      <img src="/assets/images/dev-icon.png" width="60px">
+      MVC, Most Valuable Coder
+    </div>
   </div>
+</div>
 </header>
 
 <body>
-    <div class="container">
-        {{{ body }}}
+	
+	{{{body}}}
+
+	<div class="row" id="footer">
+    <div class="col-md-12">
+      Copyright 2017 MVC
+      <br>
+			Andy He, Melinda Hesselbring, Rick Felix, Trevon Goodson
     </div>
+  </div>
+
+	<!-- private javascript -->
+	<!-- follow the rule of putting javascirpt file right before the closing "body" tag -->
+	<script src="/assets/javascript/visual_effects.js"></script>
+	<script src="/assets/javascript/timer.js"></script>
+	<script src="/assets/javascript/coding.js"></script>
+	<!-- end of private javascript -->
 </body>
 </html>

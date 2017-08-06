@@ -1,66 +1,98 @@
-<div id="setOpacity">
-  <div id="main-container" class="container">
-    <div id="instruction" >
-      <p>
-        Welcome to MVC, an online coding judging app (for competitive programming online.)  Practice your coding skill.  Below are random questions that you can solve by coding the right javascript codes.  Complete and compete. Each correct answer earns points.  The hightest score is [ ], can you beat it?  Remember time is running, start coding.
-      </p>
-    </div>
-    <section class="main-section">
-      <div id="problem-title" class="jumbotron">
-        <p id="problem">
-          Write a function that returns the sum of two numbers.
-        </p>
+<!-- Navbar on the top is defined in main.handlebars -->
+
+<div id="main-container" class="container">
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-12 row-title">
+          <img src="/assets/images/arrow-icon.png" width="30px">
+          Challenge
+        </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 content-text" id="choose-problem">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+              Choose a Problem
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li id="problem-0"><a href="#">Add two tumbers</a></li>
+              <li id="problem-1"><a href="#">Find maximum number in an array</a></li>
+              <li id="problem-2"><a href="#">Reverse a string</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 content-text" id="problem-description">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 row-title">
+          <img src="/assets/images/arrow-icon.png" width="30px">
+          Your Code
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 content-text">
+          <!-- we need different function headers,
+          like "function add(a, b)" or "function sort(array)",
+          for different problems -->
           <textarea class="form-control" rows="10" id="usercode">
-            Enter your codes here.
           </textarea>
         </div>
       </div>
-      <div id="buttons">
-        <div class="col-md-1">
-          <button type="button" class="btn btn-success" id="starttimer">
-            Start
-          </button>
+
+      <div class="row">
+        <div class="col-md-12">
+          <input id="username-field" type="text" maxlength="16" value="Your name"></input>
+          <button type="button" class="btn btn-success" id="starttimer">Start</button>
+          <button type="button" class="btn btn-primary" id="runcode">Verify Code</button>
+          <span id="clock-title">
+            <strong>Timer: </strong>
+          </span>
+          <span id="clock">
+            00:00
+          </span>
         </div>
-        <div class="col-md-1 col-md-offset-1">
-          <button type="button" class="btn btn-default" id="clock">00:00</button>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="alert alert-warning" id="default-console">
+            Click "Verify Code" when you finish.
+          </div>
+          <div class="alert alert-success" id="pass"></div>
+				  <div class="alert alert-danger" id="fail"></div>
+				  <div class="alert alert-danger" id="error"></div>
         </div>
-        <div class="col-md-1 col-md-offset-1">
-          <button type="button" class="btn btn-primary" id="runcode">Submit</button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-12" id="rank-title">
+          <img src="/assets/images/trophy-icon.png" width="50px">
+          Top 5 MVC!
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" id="rank-list">
+          <ol>
+            <li><img src="assets/images/star-icon.png" width="20px">Bill Gates</li>
+            <li><img src="assets/images/star-icon.png" width="20px">Steve Jobs</li>
+            <li><img src="assets/images/star-icon.png" width="20px">Mark Zuckerberg</li>
+            <li><img src="assets/images/star-icon.png" width="20px">Evan Spiegel</li>
+          </ol>
         </div>
-      </div>
-      <div id="comments-field" class="jumbotron">
-        <p id="comments">This is where the comments go</p>
-      </div>
-    </section>
-    <div id="leftpane">
-      <section class="user">
-        <input id="username-field" type="text" maxlength="16" value="Username(alphanum only)"></input> 
-      </section> 
-      <section class="list-section">
-        <div id="scoreboard">
-          <h4><strong>Score Board</strong></h4>
-          <p id="usernames">1234567890123456</p>
-        </div>    
-      </section>
-      <div class="push">
       </div>
     </div>
   </div>
-  <footer class="footer">
-    <div class="container">
-      Copyright &copy; 2017 MVC
-    </div>
-  </footer>
-  <div id="wrapper"><!-- below added by rick, to be removed-->
+
+  <!-- below added by rick, to be removed--><!--
+  <div id="wrapper">
     <div id="display">00:00</div>
-     <!-- Div containing our stopwatch controls -->
       <div id="buttons">
         <button id="start">Start</button>
         <button id="stop">Stop</button>
@@ -69,5 +101,7 @@
       </div>
       <div id="laps"></div>
     </div>
-  </div>
+  </div>-->
+  <!-- above added by rick, to be removed-->
+
 </div>

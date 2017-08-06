@@ -8,18 +8,29 @@
   // configure sequelize instance
   // be sure to run mysql command to create database instance
 
-  // this needs to be changed when testing the app locally
-  var password = "Sochi2018";
-  
-  var sequelize = new Sequelize("database_name", "root", password, {
-    host: "localhost",
-    dialect: "mysql",
-    pool: {
-      max: 5,
-      min: 0,
-      idle: 10000
-    }
-  });
+  var sequelize;
+  if (process.env.JAWSDB_URL) {
+    sequelize = new Sequelize("b0d3jc6zlw954h1y", "hlkowtni85aihv45", "oxuw49geqe12bw4t", {
+      host: "op2hpcwcbxb1t4z9.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+      dialect: "mysql",
+      pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+      }
+    });
+  }
+  else {
+    sequelize = new Sequelize("burger_db", "root", "andyhemysql123", {
+      host: "localhost",
+      dialect: "mysql",
+      pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+      }
+    });
+  }
 
   // define table structure
   var user_table = sequelize.define("user_table",
