@@ -2,7 +2,7 @@
 
 (function() {
 	// import model
-	var model = require("../models/model.js");
+	////var model = require("../models/model.js");
 
 	// import testbench
 	var testbench = require("./testbench.js");
@@ -18,13 +18,14 @@
 
 	// configure router
 	router.get("/", function(req, res) {
-		model.all(function(data) {
+		res.render("index", {data: "Hello"});
+		/*model.all(function(data) {
 			console.log(data);
 			var objRendered = {
 				data: "Hello"
 			};
 			res.render("index", objRendered);
-		});
+		});*/
 	});
 
 	router.post("/api/run_code", function(req, res) {
