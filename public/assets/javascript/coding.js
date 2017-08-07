@@ -6,10 +6,6 @@ var problemId = 0;
 
 var problemArray = [
 {
-	problemDescription: "Write a function that returns the sum of two numbers.",
-	functionHeader: "function add(a, b) {\r\n// write your code here\r\n}"
-},
-{
 	problemDescription: "Write a function that finds the maximum number in an array",
 	functionHeader: "function findMax(array) {\r\n// write your code here\r\n}"
 },
@@ -30,13 +26,6 @@ $("#problem-1").click(function() {
 	// disable default behavior of buttons
 	event.preventDefault();
 	problemId = 1;
-	renderProblem(problemId);
-});
-
-$("#problem-2").click(function() {
-	// disable default behavior of buttons
-	event.preventDefault();
-	problemId = 2;
 	renderProblem(problemId);
 });
 
