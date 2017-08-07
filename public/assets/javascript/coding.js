@@ -6,11 +6,11 @@ var problemId = 0;
 
 var problemArray = [
 {
-	problemDescription: "Write a function that finds the maximum number in an array",
+	problemDescription: "Write a function that finds the maximum number in an array.",
 	functionHeader: "function findMax(array) {\r\n// write your code here\r\n}"
 },
 {
-	problemDescription: "Write a function that reverses a string",
+	problemDescription: "Write a function that reverses a string.",
 	functionHeader: "function reverse(str) {\r\n// write your code here\r\n}"
 }
 ];
