@@ -1,8 +1,3 @@
-function add(a, b) {
-  // write you code here
-  return  a + b;
-}
-
 function findMax(array) {
   // write you code here
   if (array.length == 1) {
