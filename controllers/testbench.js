@@ -49,7 +49,7 @@
 					for (var i = 0; i < testVectors[problemId].length; i++) {
 						if (userfunction(testVectors[problemId][i].array) != testVectors[problemId][i].max) {
 							// prepare failure message
-							var failMessage = "Fail: "
+							var failMessage = "Failed: "
 							+ "Maximum number of array " 
 							+ testVectors[problemId][i].array 
 							+ " is "
@@ -68,7 +68,7 @@
 					for (var i = 0; i < testVectors[problemId].length; i++) {
 						if (userfunction(testVectors[problemId][i].str) != testVectors[problemId][i].reversedString) {
 							// prepare failure message
-							var failMessage = "Fail: "
+							var failMessage = "Failed: "
 							+ "The reversed string of "
 							+ testVectors[problemId][i].str
 							+ " is \""
@@ -92,11 +92,11 @@
 				return failMessage;
 			}
 			else {
-				return "Congratualations! You code has been accepted.";
+				return "Congratualations! Your code has been accepted.";
 			}
 		}
 		catch(error) {
-			return "Compiling Failed: " + error;
+			return "Compilation Failed: " + error;
 		}
 	}
 	module.exports = testbench;
