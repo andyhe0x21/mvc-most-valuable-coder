@@ -63,7 +63,7 @@ $("#runcode").click(function() {
 	$.post(
 		"/api/run_code", {userCode: userCode, problemId: problemId}).done(function(data) {
 		console.log("Backend returns " + data.result);
-		if (data.result.indexOf("Congratualations") >= 0) {
+		if (data.result.indexOf("Congratulations") >= 0) {
 			$("#pass").text(data.result);
 			$("#pass").show(1000);
 		}
