@@ -31,8 +31,12 @@
 <script src="src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/twilight");
-    editor.session.setMode("ace/mode/javascript");
+    editor.setTheme("ace/theme/monokai");
+    editor.session.setOptions({
+        mode: "ace/mode/javascript",
+        tabSize: 8,
+        useSoftTabs: true
+});
 </script>
 
 </body>
