@@ -34,8 +34,9 @@ renderProblem(problemId);
 function renderProblem(problemId) {
 	// generate the problem with the random number
 	$("#problem-description").html("Problem #<strong>" + problemId + "</strong>: " + problemArray[problemId].problemDescription);
-
-	$("#usercode").val(problemArray[problemId].functionHeader);
+    
+	//Mel: Sets the editor value
+    editor.setValue(problemArray[problemId].functionHeader);
 
 	$("#problem-description").hide(0).show(1000);
 
@@ -55,7 +56,8 @@ $("#runcode").click(function() {
 	$("#fail").hide(200);
 	$("#error").hide(200);
 
-	var userCode = $("#usercode").val();
+	//Mel: Grabs the value from editor
+	var userCode = editor.getValue();
 	console.log("User code: " + userCode);
 
 	$.post(

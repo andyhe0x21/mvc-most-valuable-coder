@@ -1,5 +1,18 @@
 body {
   padding: 80px 100px 20px 100px;
+  /*Mel: Needed for new editor*/
+  overflow: hidden;
+}
+
+/*Mel: Needed for new editor*/
+#editor {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
 }
 
 #top-navbar {
@@ -55,3 +68,5 @@ body {
   font-size: 15px;
   padding: 5px 0px 10px 0px;
 }
+
+
