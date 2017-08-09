@@ -1,82 +1,44 @@
-// This code will run as soon as the page loads
-window.onload = function() {
-  $("#lap").on("click", stopwatch.recordLap);
-  $("#runcode").on("click", stopwatch.stop);
-  $("#reset").on("click", stopwatch.reset);
-  $("#starttimer").on("click", stopwatch.start);
-};
-
-//  Variable that will hold our setInterval that runs the stopwatch
-var intervalId;
-
-// Our stopwatch object
+// stopwatch object
 var stopwatch = {
-
   time: 0,
-  lap: 1,
+  intervalId: null,
+  intervalSet: false,
 
   reset: function() {
-
     stopwatch.time = 0;
-    stopwatch.lap = 1;
-
-    // DONE: Change the "display" div to "00:00."
+    stopwatch.intervalSet = false;
     $("#clock").html("00:00");
-
-    // DONE: Empty the "laps" div.
-    $("#laps").html("");
   },
   start: function() {
-
-    // DONE: Use setInterval to start the count here.
-    intervalId = setInterval(stopwatch.count, 1000);
+    if (!stopwatch.intervalSet) {
+      stopwatch.intervalId = setInterval(stopwatch.count, 1000); // set interval 1 second
+      stopwatch.intervalSet = true;
+    }
   },
   stop: function() {
-
-    // DONE: Use clearInterval to stop the count here.
-    clearInterval(intervalId);
-  },
-  recordLap: function() {
-
-    // DONE: Get the current time, pass that into the stopwatch.timeConverter function,
-    //       and save the result in a variable.
-    var converted = stopwatch.timeConverter(stopwatch.time);
-
-    // DONE: Add the current lap and time to the "laps" div.
-    $("#laps").append("<p>Lap " + stopwatch.lap + " : " + converted + "</p>");
-
-    // DONE: Increment lap by 1. Remember, we can't use "this" here.
-    stopwatch.lap++;
+    clearInterval(stopwatch.intervalId); // clear interval, stop timer
+    stopwatch.reset(); // reset the timer
+    stopwatch.intervalSet = false;
   },
   count: function() {
-
-    // DONE: increment time by 1, remember we cant use "this" here.
-    stopwatch.time++;
-
-    // DONE: Get the current time, pass that into the stopwatch.timeConverter function,
-    //       and save the result in a variable.
-    var converted = stopwatch.timeConverter(stopwatch.time);
-    console.log(converted);
-
-    // DONE: Use the variable we just created to show the converted time in the "display" div.
-    $("#clock").html(converted);
+    stopwatch.time++; // increment timer value by 1, remember we cannot use "this" here
+    var convertedTime = stopwatch.timeConverter(stopwatch.time); // convert timer value and save it to 
+    console.log(convertedTime);
+    // DONE: Use the variable we just created to show the convertedTime time in the "display" div.
+    $("#clock").html(convertedTime);
   },
   timeConverter: function(t) {
-
     var minutes = Math.floor(t / 60);
     var seconds = t - (minutes * 60);
-
     if (seconds < 10) {
       seconds = "0" + seconds;
     }
-
     if (minutes === 0) {
       minutes = "00";
     }
     else if (minutes < 10) {
       minutes = "0" + minutes;
     }
-
     return minutes + ":" + seconds;
   }
 };

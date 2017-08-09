@@ -92,7 +92,7 @@
 				return failMessage;
 			}
 			else {
-				return "Congratualations! Your code has been accepted.";
+				return "Congratulations! Your code has been accepted.";
 			}
 		}
 		catch(error) {
