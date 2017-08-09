@@ -2,11 +2,68 @@
 $("#top-navbar").hide(0).show(1000);
 $("#main-container").fadeOut(0).fadeIn(1000);
 
-var problemId = 0;
+// start timer
+$("#starttimer").click(function() {
+	stopwatch.start();
+});
 
+// variable that will hold our setInterval that runs the stopwatch
+var intervalId;
+var intervalSet = false;
+
+// stopwatch object
+var stopwatch = {
+  time: 0,
+  reset: function() {
+    time = 0;
+    intervalSet = false;
+
+    // reset timer
+    $("#clock").html("00:00");
+  },
+  start: function() {
+    if (!intervalSet) {
+      // set interval 1 second
+      intervalId = setInterval(stopwatch.count, 1000);
+      intervalSet = true;
+    }
+  },
+  stop: function() {
+    // clear interval, stop timer
+    clearInterval(intervalId);
+    // reset the timer
+    stopwatch.reset();
+  },
+  count: function() {
+    // increment timer value by 1, remember we cannot use "this" here
+    stopwatch.time++;
+    // convert timer value and save it to 
+    var convertedTime = stopwatch.timeConverter(stopwatch.time);
+    console.log(convertedTime);
+    // DONE: Use the variable we just created to show the convertedTime time in the "display" div.
+    $("#clock").html(convertedTime);
+  },
+  timeConverter: function(t) {
+    var minutes = Math.floor(t / 60);
+    var seconds = t - (minutes * 60);
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
+    if (minutes === 0) {
+      minutes = "00";
+    }
+    else if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+    return minutes + ":" + seconds;
+  }
+};
+
+// code verifier
+var problemId = 0;
 var problemArray = [
 {
-	problemDescription: "Write a function that finds the maximum number in an array.",
+	problemDescription: "Write a function that finds the largest number in an array.",
 	functionHeader: "function findMax(array) {\r\n// write your code here\r\n}"
 },
 {
@@ -50,6 +107,9 @@ $("#runcode").click(function() {
 	// disable default behavior of buttons
 	event.preventDefault();
 
+	// stop the timer
+	console.log("[DEBUG: The user spent " + stopwatch.time + " second(s).");
+
 	$("#default-console").hide(200);
 	$("#pass").hide(200);
 	$("#fail").hide(200);
@@ -64,6 +124,8 @@ $("#runcode").click(function() {
 		if (data.result.indexOf("Congratualations") >= 0) {
 			$("#pass").text(data.result);
 			$("#pass").show(1000);
+			// only stop timer when user code is correct
+			stopwatch.stop();
 		}
 		else if (data.result.indexOf("Fail") >= 0) {
 			$("#fail").text(data.result);
