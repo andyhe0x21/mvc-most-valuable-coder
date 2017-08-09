@@ -1,6 +1,6 @@
 // create ace text editor
 var editor = ace.edit("editor");
-editor.setTheme("ace/theme/twilight");
+editor.setTheme("ace/theme/vibrant_ink");
 editor.session.setMode("ace/mode/javascript");
 
 // inital ui
