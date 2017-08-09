@@ -34,8 +34,9 @@ renderProblem(problemId);
 function renderProblem(problemId) {
 	// generate the problem with the random number
 	$("#problem-description").html("Problem #<strong>" + problemId + "</strong>: " + problemArray[problemId].problemDescription);
-
-	$("#usercode").val(problemArray[problemId].functionHeader);
+    
+	//Mel: Sets the editor value
+    editor.setValue(problemArray[problemId].functionHeader);
 
 	$("#problem-description").hide(0).show(1000);
 
@@ -55,13 +56,14 @@ $("#runcode").click(function() {
 	$("#fail").hide(200);
 	$("#error").hide(200);
 
-	var userCode = $("#usercode").val();
+	//Mel: Grabs the value from editor
+	var userCode = editor.getValue();
 	console.log("User code: " + userCode);
 
 	$.post(
 		"/api/run_code", {userCode: userCode, problemId: problemId}).done(function(data) {
 		console.log("Backend returns " + data.result);
-		if (data.result.indexOf("Congratualations") >= 0) {
+		if (data.result.indexOf("Congratulations") >= 0) {
 			$("#pass").text(data.result);
 			$("#pass").show(1000);
 		}

@@ -4,6 +4,6 @@ It is important since other developers will be unlikely to have the same databas
 */
 
 /* Create and use the starwars db */
-DROP DATABASE IF EXISTS database_name;
-CREATE DATABASE database_name;
-USE database_name;
+DROP DATABASE IF EXISTS mvc_db;
+CREATE DATABASE mvc_db;
+USE mvc_db;
