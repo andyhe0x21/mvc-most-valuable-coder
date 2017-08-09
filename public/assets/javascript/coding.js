@@ -11,6 +11,8 @@ $(".code-area").fadeOut(0);
 $("#info-during-coding").fadeOut(0);
 $("#username").fadeOut(0);
 $("#refresh").fadeOut(0);
+$("#clock-title").fadeOut(0);
+$("#clock").fadeOut(0);
 
 // force refresh when user is in coding state
 $("#refresh").click(function() {
@@ -67,6 +69,8 @@ $("#starttimer").click(function() {
 	$("#starttimer").fadeOut(0);
 	$("#refresh").fadeIn(1000);
 	$("#info-during-coding").fadeIn(1000);
+	$("#clock-title").fadeIn(1000);
+	$("#clock").fadeIn(1000);
 	stopwatch.start();
 });
 
@@ -128,6 +132,8 @@ $("#runcode").click(function() {
 				$("#runcode").fadeOut(0);
 				$("#username").fadeOut(0);
 				$("#refresh").fadeOut(0);
+				$("#clock-title").fadeOut(0);
+				$("#clock").fadeOut(0);
 			}
 		}
 		else if (data.result.indexOf("Fail") >= 0) {
