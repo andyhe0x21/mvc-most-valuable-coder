@@ -48,6 +48,10 @@ body {
   margin-top: 10px;
 }
 
+#problem-title {
+  font-size: 25px;
+}
+
 #rank-title {
   font-family: 'Anton', sans-serif;
   font-size: 30px;

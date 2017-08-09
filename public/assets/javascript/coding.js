@@ -21,11 +21,15 @@ $("#refresh").click(function() {
 var problemId = 0;
 var problemArray = [
 {
+	problemTitle: "Find Largest Number in An Array",
 	problemDescription: "Write a function that finds the largest number in an array.",
+	problemExample: "If array [1, 2, 3] is passed to your function, it should return 3.",
 	functionHeader: "function findMax(array) {\r\n// write your code here\r\n}"
 },
 {
+	problemTitle: "Reverse A String",
 	problemDescription: "Write a function that reverses a string.",
+	problemExample: "If string \"abc\" is passed to your function, it should return string \"cba\".",
 	functionHeader: "function reverse(str) {\r\n// write your code here\r\n}"
 }
 ];
@@ -68,7 +72,9 @@ $("#starttimer").click(function() {
 
 function renderProblem(problemId) {
 	// generate the problem with the random number
-	$("#problem-description").html("Problem #<strong>" + problemId + "</strong>: " + problemArray[problemId].problemDescription);
+	$("#problem-title").html("<strong>Problem " + problemId + ": " + problemArray[problemId].problemTitle + "</strong>");
+	$("#problem-description").html("<strong>Description</strong><br>" + problemArray[problemId].problemDescription);
+	$("#problem-example").html("<strong>Example</strong><br>" + problemArray[problemId].problemExample);
     
 	// Mel: Sets the editor value
     editor.setValue(problemArray[problemId].functionHeader);
