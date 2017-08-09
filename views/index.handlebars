@@ -27,29 +27,27 @@
         <div class="col-md-12 content-text" id="problem-description">
         </div>
       </div>
-      <div class="row">
+      <div class="row code-area">
         <div class="col-md-12 row-title">
           <img src="/assets/images/arrow-icon.png" width="30px">
           Your Code
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12 content-text">
-          <!-- we need different function headers,
-          like "function add(a, b)" or "function sort(array)",
-          for different problems -->
-         <!-- Mel: This is the new editor -->
-            <div id="editor"></div>
-          <textarea class="form-control" rows="10" id="usercode">
-          </textarea>
+      <div class="row code-area">
+        <div class="col-md-12 content-text" id="ace-editor-container">
+          <!-- Mel: This is the new editor -->
+          <div id="editor">
+          </div>
+          
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" id="button-group">
         <div class="col-md-12">
-          <input id="username-field" type="text" maxlength="16" value="Your name"></input>
+          <input id="username" type="text" maxlength="16" value="Name"></input>
           <button type="button" class="btn btn-success" id="starttimer">Start</button>
           <button type="button" class="btn btn-primary" id="runcode">Verify Code</button>
+          <button type="button" class="btn btn-danger" id="refresh">Refresh</button>
           <span id="clock-title">
             <strong>Timer: </strong>
           </span>
@@ -59,9 +57,9 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" id="result-progressbar">
         <div class="col-md-12">
-          <div class="alert alert-warning" id="default-console">
+          <div class="alert alert-warning" id="info-during-coding">
             Click "Verify Code" when you finish.
           </div>
           <div class="alert alert-success" id="pass"></div>
@@ -89,26 +87,4 @@
       </div>
     </div>
   </div>
-
-  <!-- below added by rick, to be removed--><!--
-  <div id="wrapper">
-    <div id="display">00:00</div>
-      <div id="buttons">
-        <button id="start">Start</button>
-        <button id="stop">Stop</button>
-        <button id="reset">Reset</button>
-        <button id="lap">Lap</button>
-      </div>
-      <div id="laps"></div>
-    </div>
-  </div>-->
-  <!-- above added by rick, to be removed-->
-  <!-- Mel: This will add the editor library --> 
-    <script src="src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-    <!-- Mel: This will tell the library where the editor is --> 
-    <script>
-        var editor = ace.edit("editor");
-        editor.setTheme("ace/theme/twilight");
-        editor.session.setMode("ace/mode/javascript");
-    </script>
 </div>

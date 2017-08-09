@@ -1,18 +1,22 @@
 body {
   padding: 80px 100px 20px 100px;
-  /*Mel: Needed for new editor*/
-  overflow: hidden;
 }
 
-/*Mel: Needed for new editor*/
+#ace-editor-container {
+  min-height: 300px;
+}
+
 #editor {
   margin: 0;
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
+  left: 16px;
   right: 0;
+}
 
+#button-group, #result-progressbar {
+  margin-top: 10px;
 }
 
 #top-navbar {
