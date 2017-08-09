@@ -2,6 +2,7 @@
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/vibrant_ink");
 editor.session.setMode("ace/mode/javascript");
+editor.setFontSize(20);
 
 // inital ui
 $("#top-navbar").hide(0).show(1000);
