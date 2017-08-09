@@ -2,7 +2,7 @@ function findMax(array) {
   // write you code here
   if (array.length == 1) {
     return array[0];
-  };
+  }
   var max = array[0];
   for (var i = 1; i < array.length; i++) {
     max = Math.max(max, array[i]);
