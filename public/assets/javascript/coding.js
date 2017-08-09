@@ -45,6 +45,11 @@ $("#problem-0").click(function() {
 	$("#runcode").fadeOut(0);
 	$(".code-area").fadeOut(0);
 	$("#starttimer").fadeIn(1000);
+	$("#info-during-coding").fadeOut(0);
+	$("#username").fadeOut(0);
+	$("#refresh").fadeOut(0);
+	$("#clock-title").fadeOut(0);
+	$("#clock").fadeOut(0);
 	stopwatch.stop();
 });
 $("#problem-1").click(function() {
@@ -55,6 +60,11 @@ $("#problem-1").click(function() {
 	$("#runcode").fadeOut(0);
 	$(".code-area").fadeOut(0);
 	$("#starttimer").fadeIn(1000);
+	$("#info-during-coding").fadeOut(0);
+	$("#username").fadeOut(0);
+	$("#refresh").fadeOut(0);
+	$("#clock-title").fadeOut(0);
+	$("#clock").fadeOut(0);
 	stopwatch.stop();
 });
 
