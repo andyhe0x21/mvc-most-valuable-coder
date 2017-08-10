@@ -42,6 +42,9 @@ function updateRank(problemId) {
 		console.log("Trying to get rank for question #" + problemId);
 		console.log(data);
 		for (var i = 0; i < data.length; i++) {
+			if (i >2) {
+				break; // we only display the top 3 users
+			}
 			switch(problemId) {
 				case 0: {
 					if (parseInt(data[i].problem_0_time) < 1800) {
