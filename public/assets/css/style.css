@@ -62,6 +62,10 @@ body {
   margin: 20px 100px 20px 50px;
 }
 
+#rank-subtitle {
+  margin: 0px 100px 0px 50px; 
+}
+
 #rank-list {
   font-size: 20px;
   margin: 2px 100px 20px 50px;
