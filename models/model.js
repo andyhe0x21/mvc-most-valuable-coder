@@ -56,12 +56,14 @@
   // combined model and ORM
   var model = {
     all: function(callback) {
+      users.sync(); // make sure table "users" has already existed
       users.findAll({// empty constraint
       }).then(function(result) {
         callback(result);
       });
     },
     searchUser: function(name, callback) {
+      users.sync(); // make sure table "users" has already existed
       users.findAll({
         where:
         {
@@ -73,6 +75,7 @@
     },
 
     searchTopUsersForProblem: function(problemId, callback) {
+      users.sync(); // make sure table "users" has already existed
       var problemIdInt = parseInt(problemId); // integer passed by frontend is string
       switch(problemIdInt) {
         case 0: {
@@ -100,6 +103,7 @@
     },
 
     add: function(userName, callback) {
+      users.sync(); // make sure table "users" has already existed
       users.create({
         name: userName,
         problem_0_time: 999999,
@@ -115,6 +119,9 @@
       var timeInt = parseInt(time); // integer passed by frontend is string
 
       var updateObject;
+
+      users.sync(); // make sure table "users" has already existed
+      
       console.log("problem id is " + problemIdInt);
       switch(problemIdInt) {
         case 0: {
