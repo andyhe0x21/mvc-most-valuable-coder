@@ -50,7 +50,7 @@ function updateRank(problemId) {
 			if (numberOfTopUsers  > 3) {
 				break; // we only display the top 3 users
 			}
-			switch(problemId) {
+			switch (problemId) {
 				case 0: {
 					numberOfTopUsers++;
 					$("#top-3").append(
