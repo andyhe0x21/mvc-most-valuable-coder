@@ -33,36 +33,36 @@
   }
 
   // define table structure
-  var user_table = sequelize.define("user_table",
+  var users = sequelize.define("users",
   {
     name: {
       type: Sequelize.STRING
     }, 
-     num_solved: {
+    problem_0_time: {
       type: Sequelize.INTEGER
     },
-     avg_time: {
-      type: Sequelize.FLOAT
-    },
+    problem_1_time: {
+      type: Sequelize.INTEGER
+    }
   },
-   
+
   {
     timestamps: false
   });
 
   // sync table
-  user_table.sync();
+  users.sync();
 
   // combined model and ORM
   var model = {
     all: function(callback) {
-      user_table.findAll({// empty constraint
+      users.findAll({// empty constraint
       }).then(function(result) {
         callback(result);
       });
     },
-    search: function(name, callback) {
-      user_table.findAll({
+    searchUser: function(name, callback) {
+      users.findAll({
         where:
         {
           name: name
@@ -71,28 +71,73 @@
         callback(result);
       });
     },
-   
-    add: function(newName, callback) {
-      user_table.create({
-      
-        name: newName
+
+    searchTopUsersForProblem: function(problemId, callback) {
+      var problemIdInt = parseInt(problemId); // integer passed by frontend is string
+      switch(problemId) {
+        case 0: {
+          users.findAll({
+            order: '"problem_0_time" DESC',
+            limit: 5
+          });
+          break;
+        }
+        case 1: {
+          users.findAll({
+            order: '"problem_1_time" DESC',
+            limit: 5
+          });
+          break;
+        }
+      }
+      users.findAll({
+        where:
+        {
+        }
+      }).then(function(result) {
+        callback(result);
+      })
+    },
+
+    add: function(userName, callback) {
+      users.create({
+        name: userName,
+        problem_0_time: 999999,
+        problem_1_time: 999999
+
       }).then(function(result) {
         callback(result);
       });
     },
-    update: function(itemId, callback) {
-      user_table.update(
-      {
-        
-      }
-      , {
-        where: 
-        {
-          
+    update: function(userName, problemId, time, callback) {
+
+      var problemIdInt = parseInt(problemId); // integer passed by frontend is string
+      var timeInt = parseInt(time); // integer passed by frontend is string
+
+      var updateObject;
+      console.log("problem id is " + problemIdInt);
+      switch(problemIdInt) {
+        case 0: {
+          updateObject = {
+            problem_0_time: timeInt
+          }
+          console.log("Setting time for problem 0: " + time);
+          break;
         }
-      }).then(function (result) {
+        case 1: {
+          updateObject = {
+            problem_1_time: timeInt
+          }
+          break;
+        }
+        default: {
+          console.log("Wrong problem ID in update().");
+        }
+      }
+      console.log("Object to be updated is " + updateObject);
+      users.update(updateObject, {where: {name: userName}}).then(function (result) {
         callback(result);
-      })
+      });
     }
   };
 

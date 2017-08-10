@@ -29,7 +29,7 @@
 
 	router.post("/api/run_code", function(req, res) {
 
-		// receive code from front-end javascript
+		// receive object that contains code from front-end javascript
 		var code = req.body.userCode;
 		var problemId = req.body.problemId;
 
@@ -39,6 +39,45 @@
 		// send response to fron-end
 		res.json({result: result});
 	});
+
+	router.post("/api/add_result_to_db", function(req, res) {
+		
+		// receive object that contains user name and time from front-end javascript
+		var userName = req.body.name;
+		var userTime = req.body.time;
+		var problemId = req.body.problemId;
+
+		// first see if the user exists
+		model.searchUser(userName, function(result) {
+			if (result[0]) {
+				console.log("User " + userName + "already exists!");
+				model.update(userName, problemId, userTime, function() {
+					console.log("Finished update time.");
+				});
+			}
+			else {
+				model.add(userName, function(result) {
+					console.log("Finished adding user.");
+					model.update(userName, problemId, userTime, function() {
+						console.log("Finished update time.");
+					});
+				});
+			}
+		});
+
+		res.end();
+	});
+
+	router.get("/api/get_rank/:problemId?", function(req, res) {
+		// get problem ID
+		 var problemId = req.params.problemId;
+		 console.log("Trying to get rank for problem #" + problemId);
+		 model.searchTopUsersForProblem(problemId, function(result) {
+		 	//console.log("Top 5 users are " + result[0].problem_0_time);
+		 	res.json(result);
+		 });
+
+	})
 
 	// export route for server.js
 	module.exports = router;
