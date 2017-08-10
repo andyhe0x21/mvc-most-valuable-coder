@@ -11,8 +11,7 @@
 	var exphbs = require("express-handlebars");
 
 	// need updating when deploying server on Heroku
-	//var PORT = process.env.PORT || 3000;
-	var PORT = 8080;
+	var PORT = process.env.PORT || 3000;
 
 	// create instances if express and handlebars
 	var app = express();
