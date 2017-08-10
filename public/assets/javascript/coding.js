@@ -2,7 +2,7 @@
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/vibrant_ink");
 editor.session.setMode("ace/mode/javascript");
-editor.setFontSize(20);
+editor.setFontSize(17);
 
 // inital ui
 $("#top-navbar").hide(0).show(1000);
@@ -87,7 +87,7 @@ $("#starttimer").click(function() {
 
 function renderProblem(problemId) {
 	// generate the problem with the random number
-	$("#problem-title").html("<strong>Problem " + problemId + ": " + problemArray[problemId].problemTitle + "</strong>");
+	$("#problem-title").html("<strong>Problem " + ": " + problemArray[problemId].problemTitle + "</strong>");
 	$("#problem-description").html("<strong>Description</strong><br>" + problemArray[problemId].problemDescription);
 	$("#problem-example").html("<strong>Example</strong><br>" + problemArray[problemId].problemExample);
     
@@ -125,7 +125,7 @@ $("#runcode").click(function() {
 		if (data.result.indexOf("Congratulations") >= 0) {
 			username = $("#username").val().trim();
 			console.log("[DEBUG] username = " + username);
-			if (username == "Enter username") {
+			if (username == "") {
 				alert("Please enter a username");
 			}
 			else {

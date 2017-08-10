@@ -6,6 +6,10 @@ body {
   min-height: 300px;
 }
 
+#main-container {
+  min-height: 450px;
+}
+
 #editor {
   margin: 0;
   position: absolute;
