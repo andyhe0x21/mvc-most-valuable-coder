@@ -137,7 +137,7 @@ $("#starttimer").click(function() {
 
 function renderProblem(problemId) {
 	// generate the problem with the random number
-	$("#problem-title").html("<strong>Problem " + ": " + problemArray[problemId].problemTitle + "</strong>");
+	$("#problem-title").html("<strong>Problem: " + problemArray[problemId].problemTitle + "</strong>");
 	$("#problem-description").html("<strong>Description</strong><br>" + problemArray[problemId].problemDescription);
 	$("#problem-example").html("<strong>Example</strong><br>" + problemArray[problemId].problemExample);
     
