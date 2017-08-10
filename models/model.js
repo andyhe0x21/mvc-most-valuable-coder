@@ -74,7 +74,7 @@
 
     searchTopUsersForProblem: function(problemId, callback) {
       var problemIdInt = parseInt(problemId); // integer passed by frontend is string
-      switch(problemId) {
+      switch(problemIdInt) {
         case 0: {
           users.findAll({
             order: [["problem_0_time", "ASC"]],
@@ -94,7 +94,7 @@
           break;
         }
         default: {
-          console.log("Should be called. Please check.");
+          console.log("Should not be called. Please check.");
         }
       }
     },
