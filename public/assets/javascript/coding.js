@@ -125,7 +125,7 @@ $("#runcode").click(function() {
 		if (data.result.indexOf("Congratulations") >= 0) {
 			username = $("#username").val().trim();
 			console.log("[DEBUG] username = " + username);
-			if (username == "Name") {
+			if (username == "Enter username") {
 				alert("Please enter a username");
 			}
 			else {
