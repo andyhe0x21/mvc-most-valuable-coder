@@ -77,13 +77,13 @@
       switch(problemId) {
         case 0: {
           users.findAll({
-            order: '"problem_0_time" DESC'
+            order: '"problem_0_time" ASC'
           });
           break;
         }
         case 1: {
           users.findAll({
-            order: '"problem_1_time" DESC'
+            order: '"problem_1_time" ASC'
           });
           break;
         }
