@@ -45,15 +45,28 @@ function updateRank(problemId) {
 			switch(problemId) {
 				case 0: {
 					if (parseInt(data[i].problem_0_time) < 1800) {
-						$("#top-3").append("<li><img src=\"assets/images/star-icon.png\" width=\"20px\">" + data[i].name + "</li>")
+						$("#top-3").append(
+							"<li><img src=\"assets/images/star-icon.png\" width=\"20px\">" 
+							+ data[i].name 
+							+ " (" + data[i].problem_0_time + " seconds)"
+							+ "</li>"
+							);
 					}
 					break;
 				}
 				case 1: {
 					if (parseInt(data[i].problem_1_time) < 1800) {
-						$("#top-3").append("<li><img src=\"assets/images/star-icon.png\" width=\"20px\">" + data[i].name + "</li>")
+						$("#top-3").append(
+							"<li><img src=\"assets/images/star-icon.png\" width=\"20px\">" 
+							+ data[i].name 
+							+ " (" + data[i].problem_1_time + " seconds)"
+							+ "</li>"
+							);
 					}
 					break;
+				}
+				default: {
+					console.log("This should not be executed.");
 				}
 			}
 			
