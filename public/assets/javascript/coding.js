@@ -45,30 +45,29 @@ function updateRank(problemId) {
 		console.log("Trying to get rank for question #" + problemId);
 		console.log(data);
 
-		var numberOfTopUsers = 0;
 		for (var i = 0; i < data.length; i++) {
-			if (numberOfTopUsers  > 3) {
-				break; // we only display the top 3 users
-			}
 			switch (problemId) {
 				case 0: {
-					numberOfTopUsers++;
-					$("#top-3").append(
-						"<li><img src=\"assets/images/star-icon.png\" width=\"20px\">" 
-						+ data[i].name 
-						+ " (" + data[i].problem_0_time + " seconds)"
-						+ "</li>"
-						);
+					if (parseInt(data[i].problem_0_time) < 1800) {
+						$("#top-3").append(
+							"<li><img src=\"assets/images/star-icon.png\" width=\"20px\">" 
+							+ data[i].name 
+							+ " (" + data[i].problem_0_time + " seconds)"
+							+ "</li>"
+							);
+					}
 					break;
 				}
 				case 1: {
-					numberOfTopUsers++;
-					$("#top-3").append(
-						"<li><img src=\"assets/images/star-icon.png\" width=\"20px\">" 
-						+ data[i].name 
-						+ " (" + data[i].problem_1_time + " seconds)"
-						+ "</li>"
-						);
+					if (parseInt(data[i].problem_1_time) < 1800) {
+						$("#top-3").append(
+							"<li><img src=\"assets/images/star-icon.png\" width=\"20px\">" 
+							+ data[i].name 
+							+ " (" + data[i].problem_1_time + " seconds)"
+							+ "</li>"
+							);
+					}
+					break;
 					break;
 				}
 				default: {
