@@ -77,7 +77,7 @@
       switch(problemId) {
         case 0: {
           users.findAll({
-            order: "problem_0_time ASC"
+            order: "problem_0_time ASC",
             limit: 3
           });
           break;
