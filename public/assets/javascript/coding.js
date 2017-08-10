@@ -21,21 +21,51 @@ $("#refresh").click(function() {
 })
 
 // code array
-var problemId = 0;
 var problemArray = [
 {
 	problemTitle: "Find Largest Number in An Array",
 	problemDescription: "Write a function that finds the largest number in an array.",
 	problemExample: "If array [1, 2, 3] is passed to your function, it should return 3.",
-	functionHeader: "function findMax(array) {\r\n// write your code here\r\n}"
+	functionHeader: "// write your code here\r\nfunction findMax(array) {\r\n}"
 },
 {
 	problemTitle: "Reverse A String",
 	problemDescription: "Write a function that reverses a string.",
 	problemExample: "If string \"abc\" is passed to your function, it should return string \"cba\".",
-	functionHeader: "function reverse(str) {\r\n// write your code here\r\n}"
+	functionHeader: "// write your code here\r\nfunction reverse(str) {\r\n}"
 }
 ];
+
+function updateRank(problemId) {
+	$.get("/api/get_rank/" + problemId, function(data) {
+		$("#top-3").empty();
+		console.log("Trying to get rank for question #" + problemId);
+		console.log(data);
+		for (var i = 0; i < data.length; i++) {
+			switch(problemId) {
+				case 0: {
+					if (parseInt(data[i].problem_0_time) < 1800) {
+						$("#top-3").append("<li><img src=\"assets/images/star-icon.png\" width=\"20px\">" + data[i].name + "</li>")
+					}
+					break;
+				}
+				case 1: {
+					if (parseInt(data[i].problem_1_time) < 1800) {
+						$("#top-3").append("<li><img src=\"assets/images/star-icon.png\" width=\"20px\">" + data[i].name + "</li>")
+					}
+					break;
+				}
+			}
+			
+		}
+	});
+}
+
+// initial problem ID
+var problemId = 0;
+
+// initial ranking for problem 0
+updateRank(0);
 
 // choose a problem
 $("#problem-0").click(function() {
@@ -52,6 +82,7 @@ $("#problem-0").click(function() {
 	$("#clock-title").fadeOut(0);
 	$("#clock").fadeOut(0);
 	stopwatch.stop();
+	updateRank(0);
 });
 $("#problem-1").click(function() {
 	// disable default behavior of buttons
@@ -67,12 +98,13 @@ $("#problem-1").click(function() {
 	$("#clock-title").fadeOut(0);
 	$("#clock").fadeOut(0);
 	stopwatch.stop();
+	updateRank(1);
 });
 
 renderProblem(problemId);
 
 // start coding
-var username;
+var userName;
 $("#starttimer").click(function() {
 	$("#runcode").fadeIn(1000);
 	$(".code-area").fadeIn(1000);
@@ -123,15 +155,18 @@ $("#runcode").click(function() {
 		"/api/run_code", {userCode: userCode, problemId: problemId}).done(function(data) {
 		console.log("Backend returns " + data.result);
 		if (data.result.indexOf("Congratulations") >= 0) {
-			username = $("#username").val().trim();
-			console.log("[DEBUG] username = " + username);
-			if (username == "") {
+			userName = $("#username").val().trim();
+			console.log("[DEBUG] username = " + userName);
+			if (userName == "") {
 				alert("Please enter a username");
 			}
 			else {
+
+				var userTime = stopwatch.time;
+
 				var resultMessage = data.result 
 				+ "You solved the problem within " 
-				+ stopwatch.time 
+				+ userTime 
 				+ " seconds.";
 				
 				// only stop timer when user code is correct
@@ -145,6 +180,12 @@ $("#runcode").click(function() {
 				$("#refresh").fadeOut(0);
 				$("#clock-title").fadeOut(0);
 				$("#clock").fadeOut(0);
+
+				// make another post to write user name/time into database
+				$.post("/api/add_result_to_db", {name: userName, problemId: problemId, time: userTime}).done(function() {
+					console.log("Finished writing user's name and time into database.");
+					updateRank(problemId);
+				});
 			}
 		}
 		else if (data.result.indexOf("Fail") >= 0) {
@@ -159,4 +200,4 @@ $("#runcode").click(function() {
 			console.log("unexpected returned value!!");
 		}
 	});
-});
+}); // end runcode
