@@ -77,26 +77,26 @@
       switch(problemId) {
         case 0: {
           users.findAll({
-            order: "problem_0_time ASC",
+            order: [["problem_0_time", "ASC"]],
             limit: 3
+          }).then(function(result) {
+            callback(result);
           });
           break;
         }
         case 1: {
           users.findAll({
-            order: "problem_1_time ASC",
+            order: [["problem_1_time", "ASC"]],
             limit: 3
+          }).then(function(result) {
+            callback(result);
           });
           break;
         }
-      }
-      users.findAll({
-        where:
-        {
+        default: {
+          console.log("Should be called. Please check.");
         }
-      }).then(function(result) {
-        callback(result);
-      })
+      }
     },
 
     add: function(userName, callback) {
