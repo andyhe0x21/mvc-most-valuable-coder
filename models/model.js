@@ -43,6 +43,12 @@
     },
     problem_1_time: {
       type: Sequelize.INTEGER
+    },
+    problem_2_time: {
+      type: Sequelize.INTEGER
+    },
+    problem_3_time: {
+      type: Sequelize.INTEGER
     }
   },
 
@@ -96,6 +102,24 @@
           });
           break;
         }
+        case 2: {
+          users.findAll({
+            order: [["problem_2_time", "ASC"]],
+            limit: 3
+          }).then(function(result) {
+            callback(result);
+          });
+          break;
+        }
+        case 3: {
+          users.findAll({
+            order: [["problem_3_time", "ASC"]],
+            limit: 3
+          }).then(function(result) {
+            callback(result);
+          });
+          break;
+        }
         default: {
           console.log("Should not be called. Please check.");
         }
@@ -107,7 +131,9 @@
       users.create({
         name: userName,
         problem_0_time: 999999,
-        problem_1_time: 999999
+        problem_1_time: 999999,
+        problem_2_time: 999999,
+        problem_3_time: 999999
 
       }).then(function(result) {
         callback(result);
@@ -134,6 +160,19 @@
         case 1: {
           updateObject = {
             problem_1_time: timeInt
+          }
+          break;
+        }
+        case 2: {
+          updateObject = {
+            problem_2_time: timeInt
+          }
+          console.log("Setting time for problem 0: " + time);
+          break;
+        }
+        case 3: {
+          updateObject = {
+            problem_3_time: timeInt
           }
           break;
         }

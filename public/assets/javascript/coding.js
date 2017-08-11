@@ -33,6 +33,18 @@ var problemArray = [
 	problemDescription: "Write a function that reverses a string.",
 	problemExample: "If string \"abc\" is passed to your function, it should return string \"cba\".",
 	functionHeader: "// write your code here\r\nfunction reverse(str) {\r\n}"
+},
+{
+	problemTitle: "Find the single number in an array",
+	problemDescription: "All numbers appear twice in an array except for a single number. Write a function that returns that single number.",
+	problemExample: "If array [1, 2, 2, 1, 4, 3, 3] is passed to your function, it should return integer 4.",
+	functionHeader: "// write your code here\r\nfunction findSingle(array) {\r\n}"
+},
+{
+	problemTitle: "Climb Stairs",
+	problemDescription: "It takes n steps to reach to the top. If you are allowed to either climb 1 or 2 steps, in how many distinct ways can you climb to the top? Write a function that returns the number of ways.",
+	problemExample: "If there are 2 steps, you can reach to the top by 2 one-step moves or 1 two-step move, which mean you can reach to the top in two differnet ways.",
+	functionHeader: "// write your code here\r\nfunction climbStairs(numStairs) {\r\n}"
 }
 ];
 
@@ -62,15 +74,37 @@ function updateRank(problemId) {
 					break;
 				}
 				case 1: {
+					console.log("Appending for proble 1");
 					if (parseInt(data[i].problem_1_time) < 1800) {
 						$("#top-3").append(
-							"<li><img src=\"assets/images/star-icon.png\" width=\"20px\">" 
+							"<li><img src=\"assets/images/star-icon.png\" width=\"20px\" style=\"margin-right: 10px\">" 
 							+ data[i].name 
 							+ " (" + data[i].problem_1_time + " seconds)"
 							+ "</li>"
 							);
 					}
 					break;
+				}
+				case 2: {
+					if (parseInt(data[i].problem_2_time) < 1800) {
+						$("#top-3").append(
+							"<li><img src=\"assets/images/star-icon.png\" width=\"20px\" style=\"margin-right: 10px\">" 
+							+ data[i].name 
+							+ " (" + data[i].problem_2_time + " seconds)"
+							+ "</li>"
+							);
+					}
+					break;
+				}
+				case 3: {
+					if (parseInt(data[i].problem_3_time) < 1800) {
+						$("#top-3").append(
+							"<li><img src=\"assets/images/star-icon.png\" width=\"20px\"  style=\"margin-right: 10px\">" 
+							+ data[i].name 
+							+ " (" + data[i].problem_3_time + " seconds)"
+							+ "</li>"
+							);
+					}
 					break;
 				}
 				default: {
@@ -121,6 +155,38 @@ $("#problem-1").click(function() {
 	stopwatch.stop();
 	updateRank(1);
 });
+$("#problem-2").click(function() {
+	// disable default behavior of buttons
+	event.preventDefault();
+	problemId = 2;
+	renderProblem(problemId);
+	$("#runcode").fadeOut(0);
+	$(".code-area").fadeOut(0);
+	$("#starttimer").fadeIn(1000);
+	$("#info-during-coding").fadeOut(0);
+	$("#username").fadeOut(0);
+	$("#refresh").fadeOut(0);
+	$("#clock-title").fadeOut(0);
+	$("#clock").fadeOut(0);
+	stopwatch.stop();
+	updateRank(2);
+});
+$("#problem-3").click(function() {
+	// disable default behavior of buttons
+	event.preventDefault();
+	problemId = 3;
+	renderProblem(problemId);
+	$("#runcode").fadeOut(0);
+	$(".code-area").fadeOut(0);
+	$("#starttimer").fadeIn(1000);
+	$("#info-during-coding").fadeOut(0);
+	$("#username").fadeOut(0);
+	$("#refresh").fadeOut(0);
+	$("#clock-title").fadeOut(0);
+	$("#clock").fadeOut(0);
+	stopwatch.stop();
+	updateRank(3);
+});
 
 renderProblem(problemId);
 
@@ -148,6 +214,7 @@ function renderProblem(problemId) {
     editor.setValue(problemArray[problemId].functionHeader);
 
 	$("#problem-description").hide(0).show(1000);
+	$("#problem-example").hide(0).show(1000);
 
 	// hide test result
 	$("#pass").hide(0);
