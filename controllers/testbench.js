@@ -49,7 +49,7 @@
 		[
 		{array: [1, 2, 2, 1, 3], single: 3},
 		{array: [123, 321, 321, 456, 123], single: 456},
-		{array: [123, 321, 1912, 321, 456, 123, 456], single: 456}
+		{array: [123, 321, 1912, 321, 456, 123, 456], single: 1912}
 		],
 		// problem 3: climb starts
 		[
@@ -111,9 +111,9 @@
 						if (userfunction(testVectors[problemId][i].array) != testVectors[problemId][i].single) {
 							// prepare failure message
 							var failMessage = "Failed: "
-							+ "The only single number of array "
+							+ "The only single number of array ["
 							+ testVectors[problemId][i].array
-							+ " is \""
+							+ "] is \""
 							+ testVectors[problemId][i].single
 							+ "\". However, the string given by your function is "
 							+ userfunction(testVectors[problemId][i].array) 
