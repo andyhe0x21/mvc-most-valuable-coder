@@ -255,8 +255,7 @@ $("#runcode").click(function() {
 				var resultMessage = data.result 
 				+ "You solved the problem within " 
 				+ userTime 
-				+ " seconds." 
-				+ " Please refresh the page to see the updated rank.";
+				+ " seconds.";
 				
 				// only stop timer when user code is correct
 				stopwatch.stop();
