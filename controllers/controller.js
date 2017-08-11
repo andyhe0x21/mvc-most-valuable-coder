@@ -71,7 +71,6 @@
 		 var problemId = req.params.problemId;
 		 console.log("Trying to get rank for problem #" + problemId);
 		 model.searchTopUsersForProblem(problemId, function(result) {
-		 	//console.log("Top 5 users are " + result[0].problem_0_time);
 		 	res.json(result);
 		 });
 

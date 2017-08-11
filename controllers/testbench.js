@@ -5,7 +5,7 @@
 		// import eval
 		var codeGenerator = require("eval");
 
-		console.log(code);
+		console.log("[TESTBENCH] User code is " + code);
 		console.log(problemId);
 
 		// append "module.exports" to the code
@@ -16,6 +16,15 @@
 			}
 			case 1: {
 				code += "module.exports = reverse;"
+				break;
+			}
+			case 2: {
+				console.log("here");
+				code += "module.exports = findSingle;"
+				break;
+			}
+			case 3: {
+				code += "module.exports = climbStairs;"
 				break;
 			}
 			default: {
@@ -35,6 +44,18 @@
 		[
 		{str: "abc", reversedString: "cba"},
 		{str: "aeiou", reversedString: "uoiea"}
+		],
+		// problem 2: single number
+		[
+		{array: [1, 2, 2, 1, 3], single: 3},
+		{array: [123, 321, 321, 456, 123], single: 456},
+		{array: [123, 321, 1912, 321, 456, 123, 456], single: 456}
+		],
+		// problem 3: climb starts
+		[
+		{numStairs: 2, distinctWays: 2},
+		{numStairs: 5, distinctWays: 8},
+		{numStairs: 11, distinctWays: 144}
 		]];
 
 		try {
@@ -42,6 +63,8 @@
 			var userfunction = codeGenerator(code);
 
 			var mismatch = false;
+
+			console.log("[Testbench]: Problem is " + problemId);
 			
 			// run all test cases
 			switch (problemId) {
@@ -83,8 +106,46 @@
 					}
 					break; // not needed actually
 				}
+				case 2: {
+					for (var i = 0; i < testVectors[problemId].length; i++) {
+						if (userfunction(testVectors[problemId][i].array) != testVectors[problemId][i].single) {
+							// prepare failure message
+							var failMessage = "Failed: "
+							+ "The only single number of array "
+							+ testVectors[problemId][i].array
+							+ " is \""
+							+ testVectors[problemId][i].single
+							+ "\". However, the string given by your function is "
+							+ userfunction(testVectors[problemId][i].array) 
+							+ ".";
+							console.log(failMessage);
+							mismatch = true;
+							break;
+						}
+					}
+					break; // not needed actually
+				}
+				case 3: {
+					for (var i = 0; i < testVectors[problemId].length; i++) {
+						if (userfunction(testVectors[problemId][i].numStairs) != testVectors[problemId][i].distinctWays) {
+							// prepare failure message
+							var failMessage = "Failed: "
+							+ "For "
+							+ testVectors[problemId][i].numStairs
+							+ "-step stair case, there are \""
+							+ testVectors[problemId][i].distinctWays
+							+ ". However, the number of distinct ways given by your function is "
+							+ userfunction(testVectors[problemId][i].numStairs) 
+							+ ".";
+							console.log(failMessage);
+							mismatch = true;
+							break;
+						}
+					}
+					break; // not needed actually
+				}
 				default: {
-					console.log("Wrong problem ID.");
+					console.log("[Testbench] Wrong problem ID.");
 					break;
 				}
 			}
