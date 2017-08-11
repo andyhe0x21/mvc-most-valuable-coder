@@ -18,7 +18,7 @@ Achieve your coding mastery with MVC, join and compete with other developers to 
 
 1. **Start Button** - triggers the timer to measure the elapse time.
 
-1. **Your Code
+1. **Your Code**
 	1. _Technology_ - utilizes Ace Code Editor, an embeddable code editor written in JavaScript.  Features used: Automatic indent and outdent, text highlighting, Multiple cursors and selections, Cut, copy, and paste functionality, etc.
 	1. _Behavior_ - matches the features and performance of native editor such as Sublime.
 
