@@ -21,7 +21,7 @@
     });
   }
   else {
-    sequelize = new Sequelize("mvc_db", "root", "andyhemysql123", {
+    sequelize = new Sequelize("mvc_db", "root", "root", {
       host: "localhost",
       dialect: "mysql",
       pool: {
