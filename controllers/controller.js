@@ -18,13 +18,11 @@
 
 	// configure router
 	router.get("/", function(req, res) {
-		model.all(function(data) {
-			console.log(data);
-			var objRendered = {
-				data: "Hello"
-			};
-			res.render("index", objRendered);
-		});
+
+		var objRendered = {
+			data: "Hello"
+		};
+		res.render("index", objRendered);
 	});
 
 	router.post("/api/run_code", function(req, res) {
