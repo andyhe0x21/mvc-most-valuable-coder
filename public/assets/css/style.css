@@ -25,11 +25,11 @@ body {
 
 #top-navbar {
   background-color: #F0EFEB;
-  color: grey;
   text-align: center;
   height: 70px;
   padding: 8px 0px 10px 0px;
-  font-family: 'Abel', sans-serif;
+  font-family: 'Orbitron', sans-serif;
+  color: black;
   font-size: 25px;
   font-weight: bold;
 }
@@ -59,11 +59,11 @@ body {
 #rank-title {
   font-family: 'Anton', sans-serif;
   font-size: 30px;
-  margin: 20px 100px 20px 50px;
+  margin: 20px 100px 0px 50px;
 }
 
 #rank-subtitle {
-  margin: 0px 0px 20px 150px; 
+  margin: 0px 0px 20px 100px; 
 }
 
 #rank-list {

@@ -36,8 +36,11 @@ var problemArray = [
 }
 ];
 
+// refresh the top-3 rank on the right
 function updateRank(problemId) {
 	$.get("/api/get_rank/" + problemId, function(data) {
+
+		console.log("Update the top-3 rank.");
 
 		// clear rank first
 		$("#top-3").empty();
@@ -50,7 +53,7 @@ function updateRank(problemId) {
 				case 0: {
 					if (parseInt(data[i].problem_0_time) < 1800) {
 						$("#top-3").append(
-							"<li><img src=\"assets/images/star-icon.png\" width=\"20px\">" 
+							"<li><img src=\"assets/images/star-icon.png\" width=\"20px\" style=\"margin-right: 10px\">" 
 							+ data[i].name 
 							+ " (" + data[i].problem_0_time + " seconds)"
 							+ "</li>"
@@ -185,7 +188,8 @@ $("#runcode").click(function() {
 				var resultMessage = data.result 
 				+ "You solved the problem within " 
 				+ userTime 
-				+ " seconds.";
+				+ " seconds." 
+				+ " Please refresh the page to see the updated rank.";
 				
 				// only stop timer when user code is correct
 				stopwatch.stop();
