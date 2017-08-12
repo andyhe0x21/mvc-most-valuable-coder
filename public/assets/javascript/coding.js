@@ -125,7 +125,6 @@ updateRank(0);
 // choose a problem
 $("#problem-0").click(function() {
 	// disable default behavior of buttons
-	event.preventDefault();
 	problemId = 0;
 	renderProblem(problemId);
 	$("#runcode").fadeOut(0);
@@ -141,7 +140,6 @@ $("#problem-0").click(function() {
 });
 $("#problem-1").click(function() {
 	// disable default behavior of buttons
-	event.preventDefault();
 	problemId = 1;
 	renderProblem(problemId);
 	$("#runcode").fadeOut(0);
@@ -157,7 +155,6 @@ $("#problem-1").click(function() {
 });
 $("#problem-2").click(function() {
 	// disable default behavior of buttons
-	event.preventDefault();
 	problemId = 2;
 	renderProblem(problemId);
 	$("#runcode").fadeOut(0);
@@ -173,7 +170,6 @@ $("#problem-2").click(function() {
 });
 $("#problem-3").click(function() {
 	// disable default behavior of buttons
-	event.preventDefault();
 	problemId = 3;
 	renderProblem(problemId);
 	$("#runcode").fadeOut(0);
@@ -224,8 +220,6 @@ function renderProblem(problemId) {
 
 $("#runcode").click(function() {
 
-	// disable default behavior of buttons
-	event.preventDefault();
 
 	// stop the timer
 	console.log("[DEBUG: The user spent " + stopwatch.time + " second(s).");
